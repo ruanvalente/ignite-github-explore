@@ -1,16 +1,16 @@
-export function RepositoryItem(props) {
-  return (
-    <li>
-      <strong>{props.repository?.name ?? "Default"}</strong>
-      <p>{props.repository?.description}</p>
+import "../styles/repository.scss";
 
-      <a
-        href={props.repository?.link}
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Repository acess
-      </a>
-    </li>
-  );
+export function RepositoryItem({ repositories }) {
+  return repositories.map((repository) => (
+    <>
+      <li>
+        <strong>{repository.name}</strong>
+        <p>{repository.description}</p>
+
+        <a href={repository.html_url} target="_blank" rel="noopener noreferrer">
+          Repository acess
+        </a>
+      </li>
+    </>
+  ));
 }
