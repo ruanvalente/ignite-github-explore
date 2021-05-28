@@ -1,15 +1,8 @@
 import { useEffect, useState } from "react";
 import { RepositoryItem } from "./RepositoryItem";
 
-const repository = {
-  name: "React",
-  description: "Description",
-  url: "",
-};
-
 export function RespositoryList() {
   const [repository, setRepository] = useState([]);
-  console.log(repository);
 
   useEffect(() => {
     fetch("https://api.github.com/users/ruanvalente/repos")
@@ -21,7 +14,9 @@ export function RespositoryList() {
       <h1>Lista de repositórios</h1>
 
       <ul>
-        <RepositoryItem repositories={repository} />
+        {repository.map((repository) => (
+          <RepositoryItem key={repository.id} repositories={repository} />
+        ))}
       </ul>
     </section>
   );

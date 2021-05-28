@@ -1,16 +1,20 @@
 import "../styles/repository.scss";
 
-export function RepositoryItem({ repositories }) {
-  return repositories.map((repository) => (
+export function RepositoryItem(props) {
+  return (
     <>
       <li>
-        <strong>{repository.name}</strong>
-        <p>{repository.description}</p>
+        <strong>{props.repositories.name}</strong>
+        <p>{props.repositories.description}</p>
 
-        <a href={repository.html_url} target="_blank" rel="noopener noreferrer">
+        <a
+          href={props.repositories.html_url}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           Repository acess
         </a>
       </li>
     </>
-  ));
+  );
 }
